@@ -46,7 +46,7 @@ redisClient.connect();
 app.get('/', (req, res) => {
     redisClient.set("product", "Products....");
     res.send(
-        '<h1>Hello Docker from AWS</h1>'
+        '<h1>Hello Docker :)</h1>'
     );
 });
 
