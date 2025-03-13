@@ -44,10 +44,18 @@ redisClient.connect();
 //     console.log('Error connecting to Postgres', err);});
 
 app.get('/', (req, res) => {
+    redisClient.set("product", "Products....");
     res.send(
-        '<h1>Hello Docker! Dev</h1>'
+        '<h1>Hello Docker from AWS</h1>'
     );
 });
+
+app.post('/data', (req, res) => {
+    const product = redisClient.get("product");
+    res.send(
+        `<h1>Hello Docker! Dev</h1><h2>${product}</h2>`
+    );
+})
 
 
 const DB_USER = 'root';
